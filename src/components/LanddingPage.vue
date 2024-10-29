@@ -1,6 +1,9 @@
 <template>
-  <div class="flex items-center w-full h-14 justify-between">
-    <img src="@/assets/youLogo.png" alt="youtubeLogo" width="131" height="30" />
+  <div class="flex items-center w-full flex-1 h-14 pl-4">
+    <button class="hover:bg-stone-200 w-11 h-11 hover:rounded-full">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <img src="@/assets/youLogo.png" alt="youtubeLogo" width="130" height="29" />
 
     <div class="w-7/12 flex items-center border-black justify-center relative">
       <i
@@ -24,7 +27,7 @@
         <i class="fas fa-microphone"></i>
       </button>
     </div>
-    <div class="flex items-center justify-end pl-5 pr-5">
+    <div class="flex items-center justify-end pr-11 flex-1">
       <button class="w-10 h-10">
         <i class="fa-solid fa-video"></i>
       </button>
@@ -36,15 +39,70 @@
       </button>
     </div>
   </div>
-  <div class="flex m-3  justify-start items-center">
-    <p  class="p-3 bg-stone-200 m-1 min-w-3  h-8 text-center inline-flex items-center rounded-lg relative cursor-pointer"
-     v-for="(item, index) in miniMenu" :key="index">
-      {{ item }}
-    </p>
+
+  <div class="flex flex-1">
+    <div class="left-0 w-18 flex-none h-full p-1">
+      <ul class="flex items-center justify-center flex-col">
+        <button class="hover:bg-stone-200 w-full h-20 hover:rounded-lg">
+          <i class="fa-solid fa-house"></i>
+          <li class="text-xs">หน้าแรก</li>
+        </button>
+        <button class="hover:bg-stone-200 w-full h-20 hover:rounded-lg">
+          <i class="fa-brands fa-squarespace"></i>
+          <li class="text-xs">Short</li>
+        </button>
+        <button class="hover:bg-stone-200 w-full h-20 hover:rounded-lg">
+          <i class="fa-solid fa-square-caret-right"></i>
+          <li class="text-xs">การติดตาม</li>
+        </button>
+        <button
+          class="hover:bg-stone-200 w-full h-20 hover:rounded-lg flex-col items-center justify-center"
+        >
+          <i class="fa-solid fa-circle-play mr-2"></i>
+          <li class="fontsie truncate">Youtube Music</li>
+        </button>
+
+        <button class="hover:bg-stone-200 w-full h-20 hover:rounded-lg">
+          <i class="fa-regular fa-circle-user"></i>
+          <li class="fontsie">คุณ</li>
+        </button>
+        <button class="hover:bg-stone-200 w-full h-20 hover:rounded-lg">
+          <i class="fa-solid fa-arrow-down"></i>
+          <li class="fontsie">การดาวน์โหลด</li>
+        </button>
+      </ul>
+    </div>
+    <div class="flex-1">
+      <div class="flex m-3 justify-start items-center">
+        <p
+          class="p-3 bg-stone-200 m-1 min-w-3 h-8 text-center inline-flex items-center rounded-lg relative cursor-pointer"
+          v-for="(item, index) in miniMenu"
+          :key="index"
+        >
+          {{ item }}
+        </p>
+      </div>
+      <div>
+        <div class="flex flex-row flex-wrap justify-evently gap-y-5 gap-x-5 m-5" >
+          <div
+            class="flex flex-col border-2 videoBox justify-center items-center"
+            v-for="(product, index) in productList"
+            :key="index"
+          >
+            <img :src="product.image" alt="imgProduct" class="w-36 h-54" />
+            <p>{{ product.title }}</p>
+          
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
   
   <script>
+import axios from "axios";
+
 export default {
   name: "LanddingPage",
   data() {
@@ -64,7 +122,22 @@ export default {
         "ดูแล้ว",
         "วิดีโอใหม่สำหรับคุณ",
       ],
+      productList: [],
     };
+  },
+  methods: {
+    async getPokemonData() {
+      try {
+        const res = await axios.get(`https://fakestoreapi.com/products/`);
+        console.log(res.data);
+        this.productList = res.data;
+      } catch (error) {
+        console.error("ไม่พบข้อมูล Pokémon:", error);
+      }
+    },
+  },
+  mounted() {
+    this.getPokemonData();
   },
 };
 </script>
@@ -76,6 +149,15 @@ input {
 
 .ml-3 {
   margin-left: 10px; /* ปรับระยะห่างระหว่างไอคอนกับ input */
+}
+
+.fontsie {
+  font-size: 10px; /* คุณสามารถตั้งค่าเป็น 5px ได้เช่นกัน */
+}
+.videoBox{
+  width: 450px;
+  height: 290px;
+  min-height: 290px;
 }
 </style>
   
