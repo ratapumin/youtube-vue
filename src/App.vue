@@ -1,15 +1,21 @@
 <template>
-  <LanddingPage/>
+  <!-- <RouterLink to="/userlogin">lgoni</RouterLink> -->
+  <!-- <LanddingPage /> -->
+  <div>
+    <RouterView />
+  </div>
 </template>
 
 <script>
-import LanddingPage from './components/LanddingPage.vue';
+// import LanddingPage from "./components/LanddingPage.vue";
+
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    LanddingPage
-  }
-}
+    // LanddingPage,
+
+  },
+};
 </script>
 
 <style></style>

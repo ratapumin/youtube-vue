@@ -85,11 +85,11 @@
       <div>
         <div class="flex flex-row flex-wrap justify-evently gap-y-5 gap-x-5 m-5" >
           <div
-            class="flex flex-col border-2 videoBox justify-center items-center"
+            class="flex flex-col border-2 videoBox justify-center items-center rounded-2xl text-center p-2 hover:rounded-none"
             v-for="(product, index) in productList"
             :key="index"
           >
-            <img :src="product.image" alt="imgProduct" class="w-36 h-54" />
+            <img :src="product.image" alt="imgProduct" class="w-36 h-36" />
             <p>{{ product.title }}</p>
           
           </div>
@@ -156,8 +156,8 @@ input {
 }
 .videoBox{
   width: 450px;
-  height: 290px;
-  min-height: 290px;
+  height: 250px;
+  min-height: 250px;
 }
 </style>
   
