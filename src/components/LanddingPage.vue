@@ -1,3 +1,4 @@
+
 <template>
   <div class="flex items-center w-full flex-1 h-14 pl-4">
     <button class="hover:bg-stone-200 w-11 h-11 hover:rounded-full">
@@ -83,7 +84,9 @@
         </p>
       </div>
       <div>
-        <div class="flex flex-row flex-wrap justify-evently gap-y-5 gap-x-5 m-5" >
+        <div
+          class="flex flex-row flex-wrap justify-evently gap-y-5 gap-x-5 m-5"
+        >
           <div
             class="flex flex-col border-2 videoBox justify-center items-center rounded-2xl text-center p-2 hover:rounded-none"
             v-for="(product, index) in productList"
@@ -91,7 +94,6 @@
           >
             <img :src="product.image" alt="imgProduct" class="w-36 h-36" />
             <p>{{ product.title }}</p>
-          
           </div>
         </div>
       </div>
@@ -154,7 +156,7 @@ input {
 .fontsie {
   font-size: 10px; /* คุณสามารถตั้งค่าเป็น 5px ได้เช่นกัน */
 }
-.videoBox{
+.videoBox {
   width: 450px;
   height: 250px;
   min-height: 250px;
