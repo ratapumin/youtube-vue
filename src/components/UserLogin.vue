@@ -1,7 +1,9 @@
 <template >
   <div class="bg w-screen h-screen">
     <div class="flex justify-center items-center w-screen h-screen">
-      <div class="w-3/4 h-96 bg-white rounded-3xl p-9 flex flex-col ">
+      <div
+        class="w-3/4 h-96 bg-white rounded-3xl p-9 flex flex-col"
+      >
         <div class="w-3/6 flex justify-start flex-col">
           <img
             src="@/assets/googleLogo.png"
@@ -111,6 +113,5 @@ input:focus::placeholder {
   opacity: 1;
   animation-delay: 0.2s;
 }
-
 
 </style>
