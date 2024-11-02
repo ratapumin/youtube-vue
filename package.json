@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "db": "php -S localhost:8000 -t D:\\vue\\basic-vue\\my-project\\src\\db"
+    "db": "php -S localhost:8000 -t D:\\vue\\basic-vue\\my-project\\src"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
